@@ -58,8 +58,8 @@ bind
 function Person(name, age) {
   this.name = name;
   this.age = age;
-  this.greet = function() {
-    console.log("greeting by" + this.name);
+  this.greet = function(wish) {
+    console.log(wish + " - greeting by" + this.name);
   };
 }
 
