@@ -3,6 +3,8 @@ import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Clock from "./components/Clock";
+import Counter from "./components/Counter";
 
 class App extends Component {
   _renderList() {
@@ -29,18 +31,33 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div className="App">
-        {this._renderList()}
-        {this._renderExpressionExamples()}
-        <Header />
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Footer />
-      </div>
-    );
+    // let rootClassName = "App c1 c2 c4 c5";
+    return [
+      <Counter start={10} incBy={5} decBy={5} />,
+      <Counter start={100} incBy={25} decBy={5} />,
+      <Counter start={500} incBy={50} decBy={25} />
+    ];
   }
 }
 
 export default App;
+
+// <div
+//         className={rootClassName}
+//         data-id="main1"
+//         something-unknown="no"
+//         style={{
+//           backgroundColor: "maroon",
+//           color: "white",
+//           border: "10px solid black"
+//         }}
+//         title="this is a react app"
+//       >
+//         {this._renderList()}
+//         {this._renderExpressionExamples()}
+//         <Header />
+//         <p className="App-intro">
+//           To get started, edit <code>src/App.js</code> and save to reload.
+//         </p>
+//         <Footer />
+//       </div>

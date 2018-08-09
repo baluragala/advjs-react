@@ -6,3 +6,6 @@ JSX - Expressions
 { "hello".toUpperCase() }
 { 1==1 ? "one" :"two"}
 { 1==1 && <p>you are seeing this</p>}
+
+State:
+------
