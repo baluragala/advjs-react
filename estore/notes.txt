@@ -1,0 +1,8 @@
+JSX - JavaScript in XML
+JSX - Expressions
+{ JS expression }
+{ 2 * 2 }
+{ "a" + "b" }
+{ "hello".toUpperCase() }
+{ 1==1 ? "one" :"two"}
+{ 1==1 && <p>you are seeing this</p>}
