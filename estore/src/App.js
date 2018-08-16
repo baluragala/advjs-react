@@ -5,6 +5,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Clock from "./components/Clock";
 import Counter from "./components/Counter";
+import PL from "./components/ProductList";
+import AddProduct from "./components/AddProduct";
 
 class App extends Component {
   _renderList() {
@@ -32,16 +34,17 @@ class App extends Component {
 
   render() {
     // let rootClassName = "App c1 c2 c4 c5";
-    return [
-      <Counter start={10} incBy={5} decBy={5} />,
-      <Counter start={100} incBy={25} decBy={5} />,
-      <Counter start={500} incBy={50} decBy={25} />
-    ];
+    return <PL />;
   }
 }
 
 export default App;
 
+// [
+//   <Counter start={10} incBy={5} decBy={5} />,
+//   <Counter start={100} incBy={25} decBy={5} />,
+//   <Counter start={500} incBy={50} decBy={25} />
+// ];
 // <div
 //         className={rootClassName}
 //         data-id="main1"

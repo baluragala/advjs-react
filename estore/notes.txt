@@ -9,3 +9,27 @@ JSX - Expressions
 
 State:
 ------
+
+
+ProductList
+  ProductListItem -> 
+
+
+  code lint
+
+
+  parent -> child (using props)
+  child -> parent ( callback )
+
+  ---------------------------------------
+  Forms - in react
+  
+  controlled 
+  uncontrolled 
+
+  -----
+  redux
+  -----
+
+
+  react-redux
