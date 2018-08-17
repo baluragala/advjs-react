@@ -7,6 +7,7 @@ import Clock from "./components/Clock";
 import Counter from "./components/Counter";
 import PL from "./components/ProductList";
 import AddProduct from "./components/AddProduct";
+import Offers from "./components/Offers";
 
 class App extends Component {
   _renderList() {
@@ -34,7 +35,7 @@ class App extends Component {
 
   render() {
     // let rootClassName = "App c1 c2 c4 c5";
-    return <PL />;
+    return <Offers />;
   }
 }
 

@@ -23,30 +23,30 @@ import React, { Component } from "react";
 class ProductListItem extends Component {
   constructor(props) {
     super(props);
-    console.log("1-constructor");
+    //console.log("1-constructor");
   }
 
   componentDidMount() {
-    console.log("3-componentDidMount");
+    //console.log("3-componentDidMount");
   }
 
   componentDidUpdate() {
-    console.log("4-componentDidUpdate");
+    //console.log("4-componentDidUpdate");
   }
 
   componentWillUnmount() {
-    console.log("5-componentWillUnmount");
+    //console.log("5-componentWillUnmount");
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    debugger;
-    console.log("4.x-shouldComponentUpdate", nextProps, this.props);
+    //debugger;
+    //console.log("4.x-shouldComponentUpdate", nextProps, this.props);
     return this.props.product !== nextProps.product;
   }
 
   render() {
     const { product, productClicked } = this.props;
-    console.log("2-render");
+    //console.log("2-render");
     return (
       <div
         style={{

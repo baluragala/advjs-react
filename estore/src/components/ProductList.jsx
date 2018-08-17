@@ -12,7 +12,23 @@ class ProductList extends Component {
   //   this.props.getProductsOnLoad();
   // }
 
+  // this method is not useful as we are not focusing on state creation
+  // but i have used this to show the flow of props - ignore any erros / warnings
+  // in console
+  static getDerivedStateFromProps(props, state) {
+    console.log(
+      `7-ProductList-received "SUBSTATE(as requested in mapStateToProps)" props from Provider component - ${JSON.stringify(
+        props
+      )}`
+    );
+    return null;
+  }
+
   getProducts = () => {
+    console.log(
+      "1-ProductList- Button was clicked, and this event will be delegated as an action to provider"
+    );
+    console.log(this.props);
     this.props.getProductsOnLoad();
   };
 
@@ -36,6 +52,9 @@ class ProductList extends Component {
   };
 
   render() {
+    console.log(
+      `8-ProductList-rendering with new props - ${JSON.stringify(this.props)}`
+    );
     return (
       <div>
         <h1>Products</h1>
@@ -55,20 +74,30 @@ class ProductList extends Component {
   }
 }
 
-function mapStateToProps(applicationStateFromProvider) {
-  console.log(applicationStateFromProvider);
-  return {
-    products: applicationStateFromProvider.products,
-    productSelectionMessage:
-      applicationStateFromProvider.productSelectionMessage
+function mapStateToProps(wholeApplicationState) {
+  console.log(
+    `6-ProductList - Provider component executed mapStateToProps with whole application state ${JSON.stringify(
+      wholeApplicationState
+    )}`
+  );
+  const subStateNeededByProductListFromWholeApplicationState = {
+    products: wholeApplicationState.products,
+    productSelectionMessage: wholeApplicationState.productSelectionMessage
   };
+  return subStateNeededByProductListFromWholeApplicationState;
 }
 
 function mapDispatchToProps(dispatch) {
-  console.log(dispatch);
+  console.log("mapDispatchToProps");
   return {
     getProductsOnLoad: function() {
-      dispatch(getProductsActionCreator());
+      const action = getProductsActionCreator();
+      console.log(
+        `3-ProductList requests Provider component to dispatch an action - ${JSON.stringify(
+          action
+        )}`
+      );
+      dispatch(action);
     }
   };
 }
