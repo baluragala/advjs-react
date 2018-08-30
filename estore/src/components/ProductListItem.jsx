@@ -19,6 +19,7 @@
 // }
 
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class ProductListItem extends Component {
   constructor(props) {
@@ -57,7 +58,9 @@ class ProductListItem extends Component {
         }}
         onClick={() => productClicked(product)}
       >
-        <h2>{product.title}</h2>
+        <h2>
+          <Link to={`/products/${product.id}`}>{product.title}</Link>
+        </h2>
         <h3>{product.price}</h3>
       </div>
     );

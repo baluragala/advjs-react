@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ProductListItem from "./ProductListItem";
 import { getProductsActionCreator } from "../actionCreators/product";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 class ProductList extends Component {
   constructor(props) {
@@ -81,8 +82,9 @@ function mapStateToProps(wholeApplicationState) {
     )}`
   );
   const subStateNeededByProductListFromWholeApplicationState = {
-    products: wholeApplicationState.products,
-    productSelectionMessage: wholeApplicationState.productSelectionMessage
+    products: wholeApplicationState.productState.products,
+    productSelectionMessage:
+      wholeApplicationState.productState.productSelectionMessage
   };
   return subStateNeededByProductListFromWholeApplicationState;
 }
@@ -111,7 +113,7 @@ const ProductListWithReduxConnection = connectProductListToProvider(
   ProductList
 );
 
-export default ProductListWithReduxConnection;
+export default withRouter(ProductListWithReduxConnection);
 
 // export default connect(
 //   mapStateToProps,

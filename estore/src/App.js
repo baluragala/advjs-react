@@ -5,9 +5,14 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Clock from "./components/Clock";
 import Counter from "./components/Counter";
-import PL from "./components/ProductList";
+import ProductList from "./components/ProductList";
 import AddProduct from "./components/AddProduct";
 import Offers from "./components/Offers";
+
+import { Route, Switch, Redirect } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import ProductDetail from "./components/ProductDetail";
+import Product from "./components/Product";
 
 class App extends Component {
   _renderList() {
@@ -35,7 +40,30 @@ class App extends Component {
 
   render() {
     // let rootClassName = "App c1 c2 c4 c5";
-    return <Offers />;
+    let isLoggedIn = true;
+    return (
+      <div>
+        <Header />
+        <NavBar />
+        <Switch>
+          <Route exact path="/products" component={Product} />
+          <Route exact path="/products/add" component={AddProduct} />
+          <Route
+            exact
+            path="/products/:pid"
+            render={props => {
+              return isLoggedIn ? (
+                <ProductDetail {...props} someAdditionalProp={"extra"} />
+              ) : (
+                <Redirect to="/offers" />
+              );
+            }}
+          />
+          <Route path="/offers" component={Offers} />
+          <Route render={() => <h1>Oops.. page not found</h1>} />
+        </Switch>
+      </div>
+    );
   }
 }
 
