@@ -8,7 +8,7 @@ import {
 } from "../actionTypes/product";
 
 import { connect } from "react-redux";
-
+import { withRouter } from "react-router-dom";
 class AddProduct extends Component {
   constructor(props) {
     super(props);
@@ -135,7 +135,9 @@ function mapDispatchToProps(dispatchFunctionRefFromProvider) {
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AddProduct);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(AddProduct)
+);
