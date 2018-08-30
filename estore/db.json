@@ -51,6 +51,11 @@
       "title": "lenovo pad",
       "price": "2000",
       "id": 7
+    },
+    {
+      "title": "pixel 300",
+      "price": 1000,
+      "id": 8
     }
   ]
 }

@@ -1,4 +1,4 @@
-import { put, takeLatest, all } from "redux-saga/effects";
+import { put, takeLatest, all, takeEvery, throttle } from "redux-saga/effects";
 import { GET_PRODUCTS, ADD_PRODUCT } from "../actionTypes/product";
 
 function* getProductsFromApi() {
@@ -21,7 +21,7 @@ function* addProductToApi(action) {
 
 export function* productsWatcher() {
   yield all([
-    takeLatest(GET_PRODUCTS, getProductsFromApi),
+    throttle(1500, GET_PRODUCTS, getProductsFromApi),
     takeLatest(ADD_PRODUCT, addProductToApi)
   ]);
 }
