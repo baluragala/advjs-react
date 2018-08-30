@@ -1,5 +1,8 @@
 export const GET_PRODUCTS = "GET_PRODUCTS";
 export const ADD_PRODUCT = "ADD_PRODUCT";
+export const ADD_PRODUCT_SUCCESS = "ADD_PRODUCT_SUCCESS";
 export const TITLE_CHANGE = "TITLE_CHANGE";
 export const PRICE_CHANGE = "PRICE_CHANGE";
 export const CATEGORY_CHANGE = "CATEGORY_CHANGE";
+
+export const LOAD_PRODUCTS = "LOAD_PRODUCTS";

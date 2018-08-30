@@ -2,7 +2,10 @@ import {
   GET_PRODUCTS,
   TITLE_CHANGE,
   PRICE_CHANGE,
-  CATEGORY_CHANGE
+  CATEGORY_CHANGE,
+  LOAD_PRODUCTS,
+  ADD_PRODUCT,
+  ADD_PRODUCT_SUCCESS
 } from "../actionTypes/product";
 
 const initialState = {
@@ -24,29 +27,7 @@ export default function productReducer(prevState = initialState, action) {
   switch (action.type) {
     case GET_PRODUCTS:
       const newState = {
-        ...prevState,
-        products: [
-          {
-            id: 1,
-            title: "iphone x",
-            price: 2000
-          },
-          {
-            id: 2,
-            title: "pixel xl",
-            price: 1200
-          },
-          {
-            id: 3,
-            title: "note 7",
-            price: 1000
-          },
-          {
-            id: 4,
-            title: "MI note",
-            price: 600
-          }
-        ]
+        ...prevState
       };
 
       console.log(
@@ -61,7 +42,12 @@ export default function productReducer(prevState = initialState, action) {
       return { ...prevState, price: action.price };
     case CATEGORY_CHANGE:
       return { ...prevState, category: action.category };
-
+    case LOAD_PRODUCTS:
+      return { ...prevState, products: action.products };
+    case ADD_PRODUCT:
+      return { ...prevState, isLoading: true };
+    case ADD_PRODUCT_SUCCESS:
+      return { ...prevState, product: action.product, isLoading: false };
     default:
       return prevState;
   }

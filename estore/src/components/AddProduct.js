@@ -3,7 +3,8 @@ import "./AddProduct.css";
 import {
   TITLE_CHANGE,
   PRICE_CHANGE,
-  CATEGORY_CHANGE
+  CATEGORY_CHANGE,
+  ADD_PRODUCT
 } from "../actionTypes/product";
 
 import { connect } from "react-redux";
@@ -40,7 +41,10 @@ class AddProduct extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.handleSubmit({
+      title: this.props.title,
+      price: this.props.price
+    });
   };
 
   assignStockElementRef = eleRef => {
@@ -61,6 +65,11 @@ class AddProduct extends Component {
         <button onClick={this.setStock}>Set Stock</button>
         <button onClick={this.getStock}>Get Stock</button>
         <button onClick={this.makeStateChange}>Make State Change</button>
+        {this.props.product && (
+          <p>
+            Product Added Successfully and new id is {this.props.product.id}
+          </p>
+        )}
         <fieldset>
           <legend>Add Product</legend>
           <form onSubmit={this.handleSubmit}>
@@ -104,7 +113,8 @@ function mapStateToProps(wholeApplicationState) {
   return {
     title: wholeApplicationState.productState.title,
     price: wholeApplicationState.productState.price,
-    category: wholeApplicationState.productState.category
+    category: wholeApplicationState.productState.category,
+    product: wholeApplicationState.productState.product
   };
 }
 
@@ -118,6 +128,9 @@ function mapDispatchToProps(dispatchFunctionRefFromProvider) {
     },
     handleCategoryChange: function(category) {
       dispatchFunctionRefFromProvider({ type: CATEGORY_CHANGE, category });
+    },
+    handleSubmit: function(product) {
+      dispatchFunctionRefFromProvider({ type: ADD_PRODUCT, product });
     }
   };
 }
