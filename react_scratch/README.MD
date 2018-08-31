@@ -7,3 +7,7 @@
 - yarn add html-webpack-plugin --dev
 - yarn add webpack-dev-server --dev
 - yarn add css-loader style-loader --dev
+
+## steps to setup express backend for SSR
+
+- yarn add express
