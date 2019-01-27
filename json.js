@@ -1,7 +1,0 @@
-var o = {
-  first: "Jane",
-  last: "Porter",
-  married: true,
-  born: 1890,
-  friends: ["Tarzan", "Cheeta"]
-};
